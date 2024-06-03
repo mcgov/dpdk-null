@@ -1,0 +1,10 @@
+usage:
+
+git clone <dpdk project> dpdk
+git clone https://github.com/mcgov/dpdk-null.git dpdk/examples/null
+cd dpdk
+CFLAGS=-fsanitize=address meson setup -Dbuildtype=debug -Db_sanitize=address -Dexamples=null build
+cd build
+ninja
+sudo ninja install
+sudo examples/dpdk-null
